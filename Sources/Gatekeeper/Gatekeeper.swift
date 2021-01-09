@@ -1,6 +1,12 @@
 import Vapor
 
-public struct Gatekeeper: Service {
+//public extension Request {
+//    var gatekeeper: Gatekeeper {
+//        .init(config: <#T##GatekeeperConfig#>)
+//    }
+//}
+
+public struct Gatekeeper {
 
     internal let config: GatekeeperConfig
     internal let cacheFactory: ((Container) throws -> KeyedCache)
