@@ -16,8 +16,7 @@ public struct Gatekeeper: Service {
     public func accessEndpoint(
         on request: Request
     ) throws -> Future<Gatekeeper.Entry> {
-
-        guard let peerHostName = request.http.remotePeer.hostname else {
+        guard let peerHostName = request.remoteAddress?.hostname else {
             throw Abort(
                 .forbidden,
                 reason: "Unable to verify peer"
