@@ -1,8 +1,11 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.2
 import PackageDescription
 
 let package = Package(
     name: "Gatekeeper",
+    platforms: [
+        .macOS(.v10_15)
+    ],
     products: [
         .library(
             name: "Gatekeeper",
@@ -15,7 +18,7 @@ let package = Package(
         .target(
             name: "Gatekeeper",
             dependencies: [
-                "Vapor"
+                .product(name: "Vapor", package: "vapor")
             ]),
         .testTarget(
             name: "GatekeeperTests",
